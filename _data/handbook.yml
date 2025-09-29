@@ -1,0 +1,14 @@
+- slug:		navigation
+  name: 	Navigation
+- slug:		actions
+  name: 	Actions
+- slug: 	scenarios
+  name: 	Scenarios
+- slug: 	severe
+  name: 	Severe
+- slug: 	moderate
+  name: 	Moderate
+- slug: 	minor
+  name: 	Minor
+- slug: 	deferred
+  name: 	Deferred

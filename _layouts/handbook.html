@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<h1 class="post-title">{{ page.title }}</h1>
+
+<aside role="menu">
+  <span class="title">Contents</span>
+  <details open ><summary><a href="/handbook">Home</a></summary></details>
+  {% for category in site.data.handbook %}
+  {% if category.name == "Navigation" or category.name == "Actions" or category.name == "Scenarios" %}
+  {% assign guides = site.handbook
+    | sort: "weight"
+    | where: "category", category.slug %}
+  <details open>
+    <summary>{{ category.name }}</summary>
+
+    <div>
+	  {% if guides.count > 1 %}
+	  <ul>
+	  {% endif %}
+      {% for guide in guides %}
+      <li><a
+      role="menuitem"
+      {% if page.url == guide.url %}class="active"{% endif %}
+      href="{{ guide.url }}"
+      >{{ guide.title }}</a></li>
+      {% endfor %}
+      {% if guides.count > 1 %}
+	  </ul>
+	  {% endif %}
+    </div>
+  </details>
+  {% endif %}
+  {% endfor %}
+  <details open><summary><a href="/handbook/updating">Reference</a></summary></details>
+</aside>
+
+<p class="sub-heading">{{ page.description }}</p>
+
+<hr style="width:50%; margin: 3rem auto;"/>
+
+{{ content }}
+
+

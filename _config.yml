@@ -18,3 +18,8 @@ feed:
 # Netlify redirects
 include:
   - _redirects
+
+collections:
+  handbook:
+    output: true
+    permalink: /handbook/:name
